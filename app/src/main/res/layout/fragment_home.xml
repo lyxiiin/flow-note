@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:id="@+id/fragment_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="12dp"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/primary_color"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/primary_color"
+            app:tabSelectedTextAppearance="@style/TabTextAppearanceSelected"
+            app:tabTextAppearance="@style/TabTextAppearance"
+            app:tabTextColor="#999999">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="待办" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="随心记" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="4dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton
+                android:id="@+id/btn_add_noteCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="添加文件"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_folder_add" />
+
+            <ImageButton
+                android:id="@+id/btn_profile"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="个人中心"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_person" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_search_bar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_search"/>
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:background="@null"
+            android:hint="搜索..."
+            android:inputType="text"
+            android:maxLines="1"
+            android:textSize="12sp"/>
+        <ImageButton
+            android:id="@+id/btn_clear_search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:contentDescription="清除搜索"
+            android:visibility="gone"
+            android:src="@drawable/ic_close"/>
+
+
+    </LinearLayout>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:contentDescription="新建"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/primary_color"
+        app:tint="@color/text_on_primary" />
+
+</FrameLayout>

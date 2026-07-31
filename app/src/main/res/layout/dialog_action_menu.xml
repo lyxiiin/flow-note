@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_bottom_sheet"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="24dp">
+
+    <!-- 顶部拖拽指示条 -->
+    <View
+        android:layout_width="36dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_bottom_sheet_handle" />
+
+    <!-- 标题：显示操作对象名称 -->
+    <TextView
+        android:id="@+id/tv_menu_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        tools:text="工作笔记" />
+
+    <!-- 菜单项容器：由代码动态填充 -->
+    <LinearLayout
+        android:id="@+id/ll_menu_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+</LinearLayout>

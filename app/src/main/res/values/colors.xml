@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- ==================== 核心主题色 ==================== -->
+    <!-- rgb(42, 157, 143) = #2A9D8F -->
+    <color name="primary_color">#2A9D8F</color>
+    <color name="primary_light">#64CFC2</color>
+    <color name="primary_dark">#006E62</color>
+    <color name="primary_variant">#264653</color>
+
+    <!-- ==================== 辅助色 ==================== -->
+    <color name="secondary_color">#E9C46A</color>
+    <color name="secondary_light">#FFF7D9</color>
+    <color name="accent_orange">#F4A261</color>
+    <color name="accent_coral">#E76F51</color>
+
+    <!-- ==================== 文字颜色 ==================== -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_on_primary">#FFFFFF</color>
+
+    <!-- ==================== 背景颜色 ==================== -->
+    <color name="transparent">#00000000</color>
+    <color name="background">#FAFAFA</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="background_secondary">#F5F5F5</color>
+    <color name="background_card">#FFFFFF</color>
+    <color name="scrim">#80000000</color>
+
+    <!-- ==================== 分割线 / 边框 ==================== -->
+    <color name="divider">#E0E0E0</color>
+    <color name="border_light">#EEEEEE</color>
+    <color name="stroke">#D6D6D6</color>
+
+    <!-- ==================== 功能色 ==================== -->
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    <color name="error">#F44336</color>
+    <color name="info">#2196F3</color>
+
+    <!-- ==================== 常用灰阶 ==================== -->
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- ==================== 透明度工具色 ==================== -->
+    <color name="overlay_light">#1F000000</color>
+    <color name="overlay_dark">#33000000</color>
+    <color name="ripple_light">#1F2A9D8F</color>
+    <color name="ripple_dark">#332A9D8F</color>
+</resources>

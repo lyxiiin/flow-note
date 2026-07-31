@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <!--  主页  -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.lyxiiin.flownote.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_note_category_detail"
+            app:destination="@+id/noteCategoryDetailFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_home_to_note_detail"
+            app:destination="@+id/noteDetailFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <!--  分组详情页  -->
+    <fragment
+        android:id="@+id/noteCategoryDetailFragment"
+        android:name="com.lyxiiin.flownote.ui.category.NoteCategoryDetailFragment"
+        android:label="NoteCategoryDetail">
+        <argument
+            android:name="categoryId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_note_Category_to_note_Detail"
+            app:destination="@+id/noteDetailFragment"
+            app:popUpTo="@id/noteCategoryDetailFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <!--  笔记详情页  -->
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.lyxiiin.flownote.ui.note.NoteDetailFragment"
+        android:label="NoteDetail">
+        <argument
+            android:name="noteId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="categoryId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+    <!--  启动页  -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.lyxiiin.flownote.ui.splash.SplashFragment"
+        android:label="Splash">
+        <action
+            android:id="@+id/action_splash_to_home"
+            app:destination="@+id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+</navigation>
