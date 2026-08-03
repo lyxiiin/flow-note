@@ -12,6 +12,7 @@ import com.lyxiiin.flownote.FnApplication
 import com.lyxiiin.flownote.R
 import com.lyxiiin.flownote.databinding.FragmentNoteCategoryDetailBinding
 import com.lyxiiin.flownote.ui.widget.ActionMenuDialog
+import com.lyxiiin.flownote.ui.widget.showRenameDialog
 
 class NoteCategoryDetailFragment: Fragment(R.layout.fragment_note_category_detail) {
     private var _binding: FragmentNoteCategoryDetailBinding? = null
@@ -36,6 +37,29 @@ class NoteCategoryDetailFragment: Fragment(R.layout.fragment_note_category_detai
             onNoteClick = { note ->
                 val bundle = bundleOf("noteId" to note.id, "categoryId" to categoryId)
                 findNavController().navigate(R.id.action_note_Category_to_note_Detail, bundle)
+            },
+            onNoteMenuClick = { note ->
+                ActionMenuDialog.Builder(requireContext())
+                    .setTitle(note.title)
+                    .addItem(R.drawable.ic_edit,"重命名"){
+                        showRenameDialog(
+                            dialogTitle = "重命名笔记",
+                            hint = "请输入新的笔记标题",
+                            currentName = note.title
+                        ) { newName ->
+                            viewModel.renameNote(
+                                note.copy(title = newName, updatedAt = System.currentTimeMillis())
+                            )
+                        }
+                    }
+                    .addItem(R.drawable.ic_move,"移动"){
+
+                    }
+                    .addDangerItem(R.drawable.ic_delete, "删除"){
+                        viewModel.deleteNote(note.id)
+                    }
+                    .show()
+
             }
         )
         binding.rvCategoryNotes.layoutManager = LinearLayoutManager(requireContext())

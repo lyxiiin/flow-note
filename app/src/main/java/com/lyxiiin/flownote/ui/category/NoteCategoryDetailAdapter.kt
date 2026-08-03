@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lyxiiin.flownote.data.local.entity.Note
+import com.lyxiiin.flownote.data.local.entity.NoteCategory
 
 import com.lyxiiin.flownote.databinding.ItemNoteBinding
 import com.lyxiiin.flownote.util.toDateTimeString
 
 class NoteCategoryDetailAdapter(
-    private val onNoteClick: (com.lyxiiin.flownote.data.local.entity.Note) -> Unit = {},
+    private val onNoteClick: (Note) -> Unit = {},
+    private val onNoteMenuClick: (Note) -> Unit = {},
 )  :
     ListAdapter<Note, NoteCategoryDetailAdapter.ViewHolder>(DiffCallback)  {
 
@@ -22,6 +24,9 @@ class NoteCategoryDetailAdapter(
                 binding.tvNoteContent.text = item.content
                 binding.tvNoteTime.text = item.updatedAt.toDateTimeString()
                 binding.root.setOnClickListener { onNoteClick(item) }
+                binding.btnNoteMore.setOnClickListener {
+                    onNoteMenuClick(item)
+                }
             }
         }
 

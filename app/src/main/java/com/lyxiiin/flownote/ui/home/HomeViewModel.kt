@@ -66,6 +66,12 @@ class HomeViewModel(
         }
     }
 
+    fun renameNote(note: Note) {
+        viewModelScope.launch {
+            noteRepository.updateNote(note)
+        }
+    }
+
     fun deleteNote(id: Long) {
         viewModelScope.launch {
             noteRepository.deleteNoteById(id)
