@@ -76,6 +76,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                             )
                         }
                     }
+                    .addItem(R.drawable.ic_move, "移动") {
+                        val bundle = bundleOf("noteId" to note.id)
+                        findNavController().navigate(R.id.action_home_to_note_move,bundle)
+                    }
                     .addDangerItem(R.drawable.ic_delete, "删除笔记") {
                         viewModel.deleteNote(note.id)
                     }

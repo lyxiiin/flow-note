@@ -7,6 +7,7 @@ import android.view.View
 import android.text.TextWatcher
 import android.text.Editable
 import android.view.inputmethod.InputMethodManager
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -86,12 +87,15 @@ class NoteDetailFragment: Fragment(R.layout.fragment_note_detail) {
         }
         binding.btnMore.setOnClickListener {
             ActionMenuDialog.Builder(requireContext())
-                .addItem(R.drawable.ic_delete, "删除"){
+                .addItem(R.drawable.ic_move, "移动"){
+                    val bundle = bundleOf("noteId" to noteId)
+                    findNavController().navigate(R.id.action_note_detail_to_note_move, bundle)
+                }
+                .addDangerItem(R.drawable.ic_delete, "删除"){
                     viewModel.deleteNote()
                     findNavController().popBackStack()
                 }
                 .show()
-            // TODO 更多按钮
         }
         binding.btnConfirm.setOnClickListener {
             exitEditMode()

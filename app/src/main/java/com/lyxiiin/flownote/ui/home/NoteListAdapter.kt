@@ -12,7 +12,6 @@ import com.lyxiiin.flownote.data.local.entity.NoteCategoryWithCount
 import com.lyxiiin.flownote.databinding.ItemClassBinding
 import com.lyxiiin.flownote.databinding.ItemNoteBinding
 import com.lyxiiin.flownote.util.toDateTimeString
-import com.lyxiiin.flownote.util.toSmartDateString
 
 class NoteListAdapter(
     private val onNoteClick: (Note) -> Unit = {},

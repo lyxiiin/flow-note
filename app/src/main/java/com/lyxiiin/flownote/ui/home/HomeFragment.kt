@@ -25,7 +25,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
     private val viewModel: HomeViewModel by viewModels {
         val app = requireActivity().application as FnApplication
-        HomeViewModelFactory(app.noteCategoryRepository, app.noteRepository)
+        HomeViewModelFactory(app.noteCategoryRepository, app.noteRepository, app.todoRepository)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

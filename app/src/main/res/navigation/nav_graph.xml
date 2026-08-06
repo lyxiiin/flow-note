@@ -19,6 +19,11 @@
             app:destination="@+id/noteDetailFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_home_to_note_move"
+            app:destination="@+id/noteMoveFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 
     <!--  分组详情页  -->
@@ -35,6 +40,11 @@
             app:destination="@+id/noteDetailFragment"
             app:popUpTo="@id/noteCategoryDetailFragment"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_note_category_detail_to_note_move"
+            app:destination="@+id/noteMoveFragment"
+            app:popUpTo="@id/noteCategoryDetailFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 
     <!--  笔记详情页  -->
@@ -48,6 +58,22 @@
             android:defaultValue="-1L" />
         <argument
             android:name="categoryId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_note_detail_to_note_move"
+            app:destination="@+id/noteMoveFragment"
+            app:popUpTo="@id/noteDetailFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <!--  移动笔记页  -->
+    <fragment
+        android:id="@+id/noteMoveFragment"
+        android:name="com.lyxiiin.flownote.ui.move.NoteMoveFragment"
+        android:label="NoteMove">
+        <argument
+            android:name="noteId"
             app:argType="long"
             android:defaultValue="-1L" />
     </fragment>

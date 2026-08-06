@@ -53,7 +53,8 @@ class NoteCategoryDetailFragment: Fragment(R.layout.fragment_note_category_detai
                         }
                     }
                     .addItem(R.drawable.ic_move,"移动"){
-
+                        val bundle = bundleOf("noteId" to note.id)
+                        findNavController().navigate(R.id.action_note_category_detail_to_note_move, bundle)
                     }
                     .addDangerItem(R.drawable.ic_delete, "删除"){
                         viewModel.deleteNote(note.id)

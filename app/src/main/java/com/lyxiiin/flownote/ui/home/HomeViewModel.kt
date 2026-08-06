@@ -9,8 +9,10 @@ import com.lyxiiin.flownote.data.local.entity.NoteCategory
 import com.lyxiiin.flownote.data.local.entity.NoteCategoryWithCount
 import com.lyxiiin.flownote.data.repository.NoteCategoryRepository
 import com.lyxiiin.flownote.data.repository.NoteRepository
+import com.lyxiiin.flownote.data.repository.TodoRepository
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -22,14 +24,24 @@ sealed class InsertResult {
 }
 
 class HomeViewModel(
-    private val repository: NoteCategoryRepository,
-    private val noteRepository: NoteRepository
+    private val noteCategoryRepository: NoteCategoryRepository,
+    private val noteRepository: NoteRepository,
+    private val todoRepository: TodoRepository
 ) : ViewModel() {
-    val allNoteCategories: LiveData<List<NoteCategoryWithCount>> = repository.getAllCategoriesWithCount().asLiveData()
+    val allNoteCategories: LiveData<List<NoteCategoryWithCount>> = noteCategoryRepository.getAllCategoriesWithCount().asLiveData()
 
     val ungroupedNote: LiveData<List<Note>> = noteRepository.getUngroupedNotes().asLiveData()
     private val _insertResult = Channel<InsertResult>(Channel.BUFFERED)
     val insertResult: Flow<InsertResult> = _insertResult.receiveAsFlow()
+//
+//    // Todo页
+//    val todoGroups = combine(todoRepository.getTodayTodos(),todoRepository.getTomorrowTodos(), todoRepository.getLaterTodos()){ today,tomorrow,later ->
+//        listOf(
+//            TodoGroup("今天",today),
+//            TodoGroup("明天",tomorrow),
+//            TodoGroup("更远",later),
+//        )
+//    }.asLiveData()
 
     fun insertCategory(name: String) {
         if (name.isBlank()) {
@@ -37,23 +49,23 @@ class HomeViewModel(
             return
         }
         viewModelScope.launch {
-            if (repository.isNameExists(name)) {
+            if (noteCategoryRepository.isNameExists(name)) {
                 _insertResult.send(InsertResult.Duplicate)
                 return@launch
             }
-            repository.insertNoteCategory(NoteCategory(name = name))
+            noteCategoryRepository.insertNoteCategory(NoteCategory(name = name))
                 .onSuccess { _insertResult.send(InsertResult.Success) }
                 .onFailure { _insertResult.send(InsertResult.Duplicate) }
         }
     }
     fun deleteCategory(id: Long) {
         viewModelScope.launch {
-            repository.deleteNoteCategoryById(id)
+            noteCategoryRepository.deleteNoteCategoryById(id)
         }
     }
     fun renameCategory(category: NoteCategory){
         viewModelScope.launch {
-            repository.updateNoteCategory(category)
+            noteCategoryRepository.updateNoteCategory(category)
         }
     }
     fun dismissCategory(category: NoteCategory){
@@ -62,7 +74,7 @@ class HomeViewModel(
             for (note in notes){
                 noteRepository.updateNote(note.copy(categoryId = null))
             }
-            repository.deleteNoteCategoryById(category.id)
+            noteCategoryRepository.deleteNoteCategoryById(category.id)
         }
     }
 
