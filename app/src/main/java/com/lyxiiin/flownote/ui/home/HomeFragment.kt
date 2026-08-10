@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.lyxiiin.flownote.FnApplication
 import com.lyxiiin.flownote.R
@@ -48,6 +49,15 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                 else -> ""
             }
         }.attach()
+
+        // 页面切换时同步按钮可见性：待办页隐藏"添加分组"按钮
+        binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                binding.btnAddNoteCategory.visibility =
+                    if (position == 0) View.VISIBLE else View.GONE
+            }
+        })
+
         binding.btnAddNoteCategory.setOnClickListener {
             showAddCategoryDialog()
         }
@@ -60,7 +70,8 @@ class HomeFragment : Fragment(R.layout.fragment_home){
                 val bundle = bundleOf("noteId" to -1L)
                 findNavController().navigate(R.id.action_home_to_note_detail, bundle)
             }else{
-                // TODO 待办逻辑
+                val bundle =bundleOf("todoId" to -1L)
+                findNavController().navigate(R.id.action_home_to_todo_edit,bundle)
             }
         }
 

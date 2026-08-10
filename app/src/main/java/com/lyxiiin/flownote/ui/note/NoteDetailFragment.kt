@@ -45,7 +45,7 @@ class NoteDetailFragment: Fragment(R.layout.fragment_note_detail) {
         setupEditModeToggle()
 
         viewModel.note.observe(viewLifecycleOwner){ note ->
-            note?.let {
+            note?.let { 
                 binding.etTitle.setText(it.title)
                 binding.etContent.setText(it.content)
                 binding.tvChangedTimeWordCount.text = "${it.updatedAt.toDateTimeString()}  |  ${it.content.length}字"

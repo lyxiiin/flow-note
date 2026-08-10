@@ -2,6 +2,9 @@ package com.lyxiiin.flownote.data.repository
 
 import com.lyxiiin.flownote.data.local.dao.TodoDao
 import com.lyxiiin.flownote.data.local.entity.Todo
+import com.lyxiiin.flownote.util.toMidnightDayAfterTomorrow
+import com.lyxiiin.flownote.util.toMidnightToday
+import com.lyxiiin.flownote.util.toMidnightTomorrow
 import kotlinx.coroutines.flow.Flow
 
 class TodoRepositoryImpl(
@@ -17,9 +20,6 @@ class TodoRepositoryImpl(
     override fun getTodosByState(state: Boolean): Flow<List<Todo>> =
         todoDao.getTodosByState(state)
 
-    override fun getUpcomingTodos(): Flow<List<Todo>> =
-        todoDao.getUpcomingTodos()
-
     override suspend fun insertTodo(todo: Todo): Result<Long> =
         runCatching { todoDao.insertTodo(todo) }
 
@@ -31,4 +31,15 @@ class TodoRepositoryImpl(
 
     override suspend fun deleteTodoById(id: Long): Result<Int> =
         runCatching { todoDao.deleteTodoById(id) }
+
+    override fun getTodayTodos(): Flow<List<Todo>> =
+        todoDao.getTodayTodos(System.currentTimeMillis().toMidnightTomorrow())
+
+    override fun getTomorrowTodos(): Flow<List<Todo>> {
+        val now = System.currentTimeMillis()
+        return todoDao.getTomorrowTodos(now.toMidnightTomorrow(),now.toMidnightDayAfterTomorrow())
+    }
+
+    override fun getLaterTodos(): Flow<List<Todo>> =
+        todoDao.getLaterTodos(System.currentTimeMillis().toMidnightDayAfterTomorrow())
 }

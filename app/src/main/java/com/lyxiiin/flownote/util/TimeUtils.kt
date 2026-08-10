@@ -67,3 +67,27 @@ fun Long.toRelativeString(): String {
         else -> toDateString()
     }
 }
+
+/** 该时间戳所在日期偏移 daysOffset 天后的 0 点（系统时区）毫秒时间戳 */
+private fun Long.toMidnight(daysOffset: Long): Long =
+    toLocalDateTime().toLocalDate().plusDays(daysOffset)
+        .atStartOfDay(ZoneId.systemDefault())
+        .toInstant()
+        .toEpochMilli()
+
+/** 该时间戳所在日期的 0 点，如 2026-08-05 00:00:00 */
+fun Long.toMidnightToday(): Long = toMidnight(0)
+
+/** 该时间戳所在日期次日 0 点，如 2026-08-06 00:00:00 */
+fun Long.toMidnightTomorrow(): Long = toMidnight(1)
+
+/** 该时间戳所在日期后天 0 点，如 2026-08-07 00:00:00 */
+fun Long.toMidnightDayAfterTomorrow(): Long = toMidnight(2)
+
+/** LocalDate 按 UTC 0 点转毫秒时间戳（MaterialDatePicker 内部按 UTC 解释日期） */
+fun LocalDate.toUtcStartOfDayMillis(): Long =
+    atStartOfDay(ZoneId.of("UTC")).toInstant().toEpochMilli()
+
+/** UTC 毫秒时间戳按 UTC 解释取日历日期（MaterialDatePicker 返回值） */
+fun Long.utcMillisToLocalDate(): LocalDate =
+    Instant.ofEpochMilli(this).atZone(ZoneId.of("UTC")).toLocalDate()

@@ -32,6 +32,12 @@ interface TodoDao {
     @Query("SELECT * FROM todos WHERE is_done = :state ORDER BY created_at DESC")
     fun getTodosByState(state: Boolean): Flow<List<Todo>>
 
-    @Query("SELECT * FROM todos WHERE is_done = 0 AND due_date IS NOT NULL ORDER BY due_date ASC")
-    fun getUpcomingTodos(): Flow<List<Todo>>
+    @Query("SELECT * FROM todos WHERE is_done = 0 AND due_date < :tomorrowStart ORDER BY due_date ASC")
+    fun getTodayTodos(tomorrowStart: Long): Flow<List<Todo>>
+
+    @Query("SELECT * FROM todos WHERE is_done = 0 AND due_date >= :tomorrowStart AND due_date < :afterTomorrowStart ORDER BY due_date ASC")
+    fun getTomorrowTodos(tomorrowStart: Long, afterTomorrowStart: Long): Flow<List<Todo>>
+
+    @Query("SELECT * FROM todos WHERE is_done = 0 AND (due_date >= :afterTomorrowStart OR due_date IS NULL) ORDER BY due_date IS NULL, due_date ASC")
+    fun getLaterTodos(afterTomorrowStart: Long): Flow<List<Todo>>
 }

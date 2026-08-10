@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 保存按钮背景色选择器：禁用时灰色，启用时主题色（material 1.9+ 已移除 disabledBackgroundTint 属性，改用 ColorStateList） -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/gray_300" android:state_enabled="false"/>
+    <item android:color="@color/primary_color"/>
+</selector>

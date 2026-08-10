@@ -10,8 +10,6 @@ interface TodoRepository {
 
     fun getTodosByState(state: Boolean): Flow<List<Todo>>
 
-    fun getUpcomingTodos(): Flow<List<Todo>>
-
     suspend fun insertTodo(todo: Todo): Result<Long>
 
     suspend fun updateTodo(todo: Todo): Result<Int>
@@ -19,4 +17,10 @@ interface TodoRepository {
     suspend fun deleteTodo(todo: Todo): Result<Int>
 
     suspend fun deleteTodoById(id: Long): Result<Int>
+
+    fun getTodayTodos(): Flow<List<Todo>>
+
+    fun getTomorrowTodos(): Flow<List<Todo>>
+
+    fun getLaterTodos(): Flow<List<Todo>>
 }

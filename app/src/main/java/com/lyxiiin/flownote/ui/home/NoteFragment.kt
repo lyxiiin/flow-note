@@ -21,7 +21,7 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
 
     private val viewModel: HomeViewModel by viewModels {
         val app = requireActivity().application as FnApplication
-        HomeViewModelFactory(app.noteCategoryRepository, app.noteRepository)
+        HomeViewModelFactory(app.noteCategoryRepository, app.noteRepository,app.todoRepository)
     }
 
     private lateinit var adapter: NoteListAdapter

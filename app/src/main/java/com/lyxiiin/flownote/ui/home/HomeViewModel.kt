@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.lyxiiin.flownote.data.local.entity.Note
 import com.lyxiiin.flownote.data.local.entity.NoteCategory
 import com.lyxiiin.flownote.data.local.entity.NoteCategoryWithCount
+import com.lyxiiin.flownote.data.local.entity.Todo
 import com.lyxiiin.flownote.data.repository.NoteCategoryRepository
 import com.lyxiiin.flownote.data.repository.NoteRepository
 import com.lyxiiin.flownote.data.repository.TodoRepository
@@ -14,6 +15,7 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
@@ -33,16 +35,25 @@ class HomeViewModel(
     val ungroupedNote: LiveData<List<Note>> = noteRepository.getUngroupedNotes().asLiveData()
     private val _insertResult = Channel<InsertResult>(Channel.BUFFERED)
     val insertResult: Flow<InsertResult> = _insertResult.receiveAsFlow()
-//
-//    // Todo页
-//    val todoGroups = combine(todoRepository.getTodayTodos(),todoRepository.getTomorrowTodos(), todoRepository.getLaterTodos()){ today,tomorrow,later ->
-//        listOf(
-//            TodoGroup("今天",today),
-//            TodoGroup("明天",tomorrow),
-//            TodoGroup("更远",later),
-//        )
-//    }.asLiveData()
 
+    // Todo页
+    val todoList: LiveData<List<TodoListItem>> = combine(todoRepository.getTodayTodos(),todoRepository.getTomorrowTodos(), todoRepository.getLaterTodos(), todoRepository.getTodosByState(true)){ today, tomorrow, later,done ->
+        listOf(
+            TodoGroup("今天",today),
+            TodoGroup("明天",tomorrow),
+            TodoGroup("更远",later),
+            TodoGroup("已完成",done)
+        ).filter { it.todos.isNotEmpty() }
+    }
+        .map { flattenGroups(it) }
+        .asLiveData()
+
+
+    private fun flattenGroups(groups: List<TodoGroup>): List<TodoListItem> =
+        groups.flatMap { group ->
+            listOf(TodoListItem.Header(group.title, group.todos.size)) +
+                    group.todos.map { TodoListItem.TodoRow(it) }
+        }
     fun insertCategory(name: String) {
         if (name.isBlank()) {
             _insertResult.trySend(InsertResult.Empty)
@@ -87,6 +98,18 @@ class HomeViewModel(
     fun deleteNote(id: Long) {
         viewModelScope.launch {
             noteRepository.deleteNoteById(id)
+        }
+    }
+
+    fun deleteTodo(id: Long) {
+        viewModelScope.launch {
+            todoRepository.deleteTodoById(id)
+        }
+    }
+
+    fun updateTodo(todo: Todo){
+        viewModelScope.launch {
+            todoRepository.updateTodo(todo.copy(isDone = true, updatedAt = System.currentTimeMillis()))
         }
     }
 }

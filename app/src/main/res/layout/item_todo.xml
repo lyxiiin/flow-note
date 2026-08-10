@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Todo 列表项卡片：圆形勾选框 + 标题 + 截止日期 + 更多操作，风格与 item_note 保持一致 -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_todo_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/surface"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- 圆形完成勾选框：选中时主题色实心 + 白色对勾 -->
+        <CheckBox
+            android:id="@+id/cb_todo_done"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:button="@drawable/selector_checkbox"
+            android:contentDescription="@string/todo_done_desc"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- 标题：单行省略，完成态由代码添加删除线并置灰 -->
+            <TextView
+                android:id="@+id/tv_todo_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="完成产品需求评审" />
+
+            <!-- 截止日期行：无截止日期时由代码隐藏；过期时图标与文字置红 -->
+            <LinearLayout
+                android:id="@+id/ll_todo_due"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/iv_todo_due_icon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="截止时间"
+                    android:src="@drawable/ic_schedule" />
+
+                <TextView
+                    android:id="@+id/tv_todo_due"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textColor="@color/text_hint"
+                    android:textSize="12sp"
+                    tools:text="今天 18:00" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 48dp 触摸区域，满足 Material 无障碍最小触控标准 -->
+        <ImageButton
+            android:id="@+id/btn_todo_more"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="-8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/more_options"
+            android:src="@drawable/ic_more_horizontal" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
