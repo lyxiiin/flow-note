@@ -68,7 +68,7 @@
                     android:id="@+id/iv_todo_due_icon"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="截止时间"
+                    android:contentDescription="@string/due_label"
                     android:src="@drawable/ic_schedule" />
 
                 <TextView

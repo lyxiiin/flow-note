@@ -4,6 +4,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.lyxiiin.flownote.R
 
 /**
  * 通用重命名弹窗。
@@ -45,13 +46,13 @@ fun Fragment.showRenameDialog(
     AlertDialog.Builder(requireContext())
         .setTitle(dialogTitle)
         .setView(editText)
-        .setPositiveButton("确定") { _, _ ->
+        .setPositiveButton(getString(R.string.common_confirm)) { _, _ ->
             val newName = editText.text.toString().trim()
             if (newName.isNotEmpty() && newName != currentName) {
                 onConfirm(newName)
-                Toast.makeText(requireContext(), "重命名成功", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.toast_rename_success), Toast.LENGTH_SHORT).show()
             }
         }
-        .setNegativeButton("取消", null)
+        .setNegativeButton(getString(R.string.common_cancel), null)
         .show()
 }

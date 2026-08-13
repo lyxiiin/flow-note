@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.FlowNote" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.FlowNote" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- 定义主题属性 -->
         <item name="colorPrimary">@color/primary_color</item>
-        <item name="colorSecondary">@color/purple_500</item>
+        <item name="colorSecondary">@color/secondary_color</item>
         <!-- 系统栏透明 + 允许绘制到系统栏区域 -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -21,6 +21,7 @@
     <style name="TabTextAppearanceSelected" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
+
     </style>
 
 </resources>

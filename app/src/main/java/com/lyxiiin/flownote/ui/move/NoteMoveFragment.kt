@@ -64,7 +64,7 @@ class NoteMoveFragment : Fragment(R.layout.fragment_note_move) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.moveResult.collect { success ->
                     if (!success) {
-                        Toast.makeText(requireContext(), "移动失败，请重试", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.toast_move_failed), Toast.LENGTH_SHORT).show()
                     }
                     findNavController().popBackStack()
                 }

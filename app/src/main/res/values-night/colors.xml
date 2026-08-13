@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ==================== 背景颜色(深色) ==================== -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="background_secondary">#2A2A2A</color>
+    <color name="background_card">#1E1E1E</color>
+
+    <!-- ==================== 文字颜色(深色) ==================== -->
+    <color name="text_primary">#E0E0E0</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="text_hint">#757575</color>
+    <color name="tab_text_unselected">#8A8A8A</color>
+
+    <!-- ==================== 分割线 / 边框(深色) ==================== -->
+    <color name="divider">#333333</color>
+    <color name="border_light">#2A2A2A</color>
+    <color name="stroke">#4A4A4A</color>
+
+    <!-- ==================== 灰阶(深色) ==================== -->
+    <color name="gray_100">#2A2A2A</color>
+    <color name="gray_200">#333333</color>
+    <color name="gray_300">#3D3D3D</color>
+    <color name="gray_400">#616161</color>
+
+    <!-- ==================== 水波纹(深色下用更深的主题色波纹) ==================== -->
+    <color name="ripple_light">#332A9D8F</color>
+</resources>

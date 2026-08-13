@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用名 -->
+    <string name="app_name">FlowNote</string>
+
+    <!-- 无障碍描述 -->
+    <string name="splash_icon_desc">앱 아이콘</string>
+    <string name="more_options">추가 옵션</string>
+    <string name="todo_done_desc">완료로 표시</string>
+    <string name="selected_desc">선택됨</string>
+
+    <!-- 通用操作 -->
+    <string name="common_back">뒤로</string>
+    <string name="common_cancel">취소</string>
+    <string name="common_confirm">확인</string>
+    <string name="common_save">저장</string>
+    <string name="common_delete">삭제</string>
+    <string name="common_rename">이름 변경</string>
+    <string name="common_move">이동</string>
+
+    <!-- 首页 -->
+    <string name="tab_todo">할 일</string>
+    <string name="tab_note">메모</string>
+    <string name="search_hint">검색...</string>
+    <string name="home_add_folder_desc">폴더 추가</string>
+    <string name="home_profile_desc">프로필</string>
+    <string name="home_clear_search_desc">검색 지우기</string>
+    <string name="home_add_desc">새로 만들기</string>
+    <string name="dialog_new_category_title">새 그룹</string>
+    <string name="dialog_new_category_hint">그룹 이름 입력</string>
+    <string name="toast_category_added">그룹이 추가되었습니다</string>
+    <string name="toast_category_duplicate">같은 이름의 그룹이 이미 있습니다</string>
+    <string name="toast_category_empty">그룹 이름을 입력하세요</string>
+
+    <!-- 分组 -->
+    <string name="group_today">오늘</string>
+    <string name="group_tomorrow">내일</string>
+    <string name="group_later">나중에</string>
+    <string name="group_done">완료</string>
+    <string name="category_detail_empty">이 그룹에 노트가 없습니다</string>
+    <string name="category_note_count_format">총 %1$d개의 노트</string>
+    <string name="category_note_subtotal_format">%1$d개 소계</string>
+    <string name="rename_category_title">그룹 이름 변경</string>
+    <string name="rename_category_hint">새 그룹 이름 입력</string>
+    <string name="dismiss_category">그룹 해체</string>
+    <string name="category_unknown">알 수 없음</string>
+
+    <!-- 笔记 -->
+    <string name="note_placeholder">메모 페이지</string>
+    <string name="note_detail_bg_desc">배경 변경</string>
+    <string name="note_detail_undo_desc">실행 취소</string>
+    <string name="note_detail_redo_desc">다시 실행</string>
+    <string name="note_detail_done_desc">완료</string>
+    <string name="note_detail_hint_content">작성 시작</string>
+    <string name="note_detail_meta_format">%1$s  |  %2$d자</string>
+    <string name="rename_note_title">노트 이름 변경</string>
+    <string name="rename_note_hint">새 노트 제목 입력</string>
+    <string name="delete_note">노트 삭제</string>
+    <string name="new_note_desc">새 노트</string>
+
+    <!-- 移动分组 -->
+    <string name="move_select_group">그룹 선택</string>
+    <string name="move_selected_desc">선택됨</string>
+    <string name="toast_move_failed">이동에 실패했습니다. 다시 시도해 주세요</string>
+
+    <!-- 待办 -->
+    <string name="todo_empty">할 일이 없습니다</string>
+    <string name="todo_edit_title">작업 편집</string>
+    <string name="todo_edit_hint_title">제목</string>
+    <string name="todo_edit_hint_detail">세부 내용…</string>
+    <string name="due_label">마감일</string>
+    <string name="due_placeholder">마감일 설정</string>
+    <string name="clear_due_desc">마감일 지우기</string>
+    <string name="priority_label">우선순위</string>
+    <string name="priority_low">낮음</string>
+    <string name="priority_medium">중간</string>
+    <string name="priority_high">높음</string>
+    <string name="toast_save_failed">저장에 실패했습니다. 다시 시도해 주세요</string>
+    <string name="picker_date_title">날짜 선택</string>
+    <string name="todo_count_format">%1$d개</string>
+
+    <!-- 个人中心 -->
+    <string name="profile_title">프로필</string>
+    <string name="setting_language">언어</string>
+    <string name="setting_appearance">모양</string>
+    <string name="setting_notification">알림</string>
+    <string name="setting_about">정보</string>
+
+    <!-- 语言 -->
+    <string name="language_finish">완료</string>
+    <string name="language_follow_system">시스템 설정 따르기</string>
+
+    <!-- 外观 -->
+    <string name="appearance_finish">완료</string>
+    <string name="appearance_follow_system">시스템 설정 따르기</string>
+    <string name="appearance_light_mode">라이트 모드</string>
+    <string name="appearance_dark_mode">다크 모드</string>
+
+    <!-- 相对时间 -->
+    <string name="relative_just_now">방금 전</string>
+    <string name="relative_minutes_ago">%1$d분 전</string>
+    <string name="relative_hours_ago">%1$d시간 전</string>
+    <string name="relative_days_ago">%1$d일 전</string>
+
+    <!-- 提示 -->
+    <string name="toast_rename_success">이름이 변경되었습니다</string>
+</resources>

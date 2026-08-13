@@ -42,10 +42,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
             onCategoryMenuClick = {category ->
                 ActionMenuDialog.Builder(requireContext())
                     .setTitle(category.name)
-                    .addItem(R.drawable.ic_edit, "重命名"){
+                    .addItem(R.drawable.ic_edit, getString(R.string.common_rename)){
                         showRenameDialog(
-                            dialogTitle = "重命名分组",
-                            hint = "请输入新的分组名称",
+                            dialogTitle = getString(R.string.rename_category_title),
+                            hint = getString(R.string.rename_category_hint),
                             currentName = category.name
                         ) { newName ->
                             viewModel.renameCategory(
@@ -53,10 +53,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                             )
                         }
                     }
-                    .addItem(R.drawable.ic_dissolve, "解散分组"){
+                    .addItem(R.drawable.ic_dissolve, getString(R.string.dismiss_category)){
                         viewModel.dismissCategory(category)
                     }
-                    .addDangerItem(R.drawable.ic_delete, "删除"){
+                    .addDangerItem(R.drawable.ic_delete, getString(R.string.common_delete)){
                         viewModel.deleteCategory(category.id)
                     }
                     .show()
@@ -65,10 +65,10 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
             onNoteMenuClick = { note ->
                 ActionMenuDialog.Builder(requireContext())
                     .setTitle(note.title)
-                    .addItem(R.drawable.ic_edit, "重命名") {
+                    .addItem(R.drawable.ic_edit, getString(R.string.common_rename)) {
                         showRenameDialog(
-                            dialogTitle = "重命名笔记",
-                            hint = "请输入新的笔记标题",
+                            dialogTitle = getString(R.string.rename_note_title),
+                            hint = getString(R.string.rename_note_hint),
                             currentName = note.title
                         ) { newName ->
                             viewModel.renameNote(
@@ -76,11 +76,11 @@ class NoteFragment : Fragment(R.layout.fragment_note) {
                             )
                         }
                     }
-                    .addItem(R.drawable.ic_move, "移动") {
+                    .addItem(R.drawable.ic_move, getString(R.string.common_move)) {
                         val bundle = bundleOf("noteId" to note.id)
                         findNavController().navigate(R.id.action_home_to_note_move,bundle)
                     }
-                    .addDangerItem(R.drawable.ic_delete, "删除笔记") {
+                    .addDangerItem(R.drawable.ic_delete, getString(R.string.delete_note)) {
                         viewModel.deleteNote(note.id)
                     }
                     .show()

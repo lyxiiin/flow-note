@@ -57,6 +57,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview) // Compose 预览支持
     implementation(libs.androidx.compose.material3)     // Material3 组件库
 
+
+    // --- Jetpack DataStore ---
+    implementation(libs.datastore.preferences)
     // --- XML 布局相关库 ---
     implementation("com.google.android.material:material:1.12.0")   // Material Design 组件（TabLayout 等）
     implementation("androidx.viewpager2:viewpager2:1.1.0")          // ViewPager2 滑动页面

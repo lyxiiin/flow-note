@@ -42,10 +42,14 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
         binding.viewPager.adapter = MyPagerAdapter(this)
 
+        binding.btnProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_profile)
+        }
+
         TabLayoutMediator(binding.tabLayout, binding.viewPager) {tab, position ->
             tab.text = when(position) {
-                0 -> "随心记"
-                1 -> "待办"
+                0 -> getString(R.string.tab_note)
+                1 -> getString(R.string.tab_todo)
                 else -> ""
             }
         }.attach()
@@ -79,9 +83,9 @@ class HomeFragment : Fragment(R.layout.fragment_home){
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.insertResult.collect { result ->
                     when (result) {
-                        is InsertResult.Success -> Toast.makeText(requireContext(), "分组已添加", Toast.LENGTH_SHORT).show()
-                        is InsertResult.Duplicate -> Toast.makeText(requireContext(), "分组名称已存在", Toast.LENGTH_SHORT).show()
-                        is InsertResult.Empty -> Toast.makeText(requireContext(), "分组名称不能为空", Toast.LENGTH_SHORT).show()
+                        is InsertResult.Success -> Toast.makeText(requireContext(), getString(R.string.toast_category_added), Toast.LENGTH_SHORT).show()
+                        is InsertResult.Duplicate -> Toast.makeText(requireContext(), getString(R.string.toast_category_duplicate), Toast.LENGTH_SHORT).show()
+                        is InsertResult.Empty -> Toast.makeText(requireContext(), getString(R.string.toast_category_empty), Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -94,20 +98,20 @@ class HomeFragment : Fragment(R.layout.fragment_home){
 
     private fun showAddCategoryDialog() {
         val editText = EditText(requireContext()).apply {
-            hint = "请输入分组名称"
+            hint = getString(R.string.dialog_new_category_hint)
             setPadding(64, 32, 64, 32)
         }
 
         AlertDialog.Builder(requireContext())
-            .setTitle("新建分组")
+            .setTitle(getString(R.string.dialog_new_category_title))
             .setView(editText)
-            .setPositiveButton("确定") { _, _ ->
+            .setPositiveButton(getString(R.string.common_confirm)) { _, _ ->
                 val name = editText.text.toString().trim()
                 if (name.isNotEmpty()) {
                     viewModel.insertCategory(name)
                 }
             }
-            .setNegativeButton("取消", null)
+            .setNegativeButton(getString(R.string.common_cancel), null)
             .show()
     }
 

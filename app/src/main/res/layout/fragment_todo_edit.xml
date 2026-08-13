@@ -7,34 +7,10 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <!-- 顶部工具栏：返回 + 页面标题 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="4dp"
-        android:paddingEnd="8dp">
-
-        <ImageButton
-            android:id="@+id/btn_back"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="返回"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_back"/>
-
-        <TextView
-            android:id="@+id/tv_page_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="编辑任务"
-            android:textColor="@color/text_primary"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
+    <!-- 通用顶栏：返回 + 页面标题，复用 layout_top_bar，标题文本由宿主代码设置 -->
+    <include
+        android:id="@+id/top_bar"
+        layout="@layout/layout_top_bar" />
 
     <!-- 表单区域（可滚动，防小屏/键盘遮挡） -->
     <ScrollView
@@ -70,7 +46,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="标题"
+                        android:hint="@string/todo_edit_hint_title"
                         android:inputType="text"
                         android:maxLines="1"
                         android:textColor="@color/text_primary"
@@ -92,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:gravity="start|top"
-                        android:hint="详情…"
+                        android:hint="@string/todo_edit_hint_detail"
                         android:inputType="textMultiLine"
                         android:minLines="3"
                         android:textColor="@color/text_primary"
@@ -122,7 +98,7 @@
                             android:id="@+id/iv_due_icon"
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:contentDescription="截止时间"
+                            android:contentDescription="@string/due_label"
                             android:src="@drawable/ic_schedule"
                             app:tint="@color/text_hint"/>
 
@@ -131,7 +107,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
-                            android:text="截止时间"
+                            android:text="@string/due_label"
                             android:textColor="@color/text_secondary"
                             android:textSize="14sp"/>
 
@@ -142,7 +118,7 @@
                             android:layout_marginStart="12dp"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:text="设置截止时间"
+                            android:text="@string/due_placeholder"
                             android:textColor="@color/text_hint"
                             android:textSize="14sp"
                             tools:text="2026-08-07 14:30"/>
@@ -153,7 +129,7 @@
                             android:layout_height="48dp"
                             android:layout_marginEnd="-8dp"
                             android:background="?attr/selectableItemBackgroundBorderless"
-                            android:contentDescription="清除截止时间"
+                            android:contentDescription="@string/clear_due_desc"
                             android:src="@drawable/ic_close"
                             android:visibility="gone"
                             tools:visibility="visible"/>
@@ -171,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="8dp"
-                        android:text="优先级"
+                        android:text="@string/priority_label"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp"/>
 
@@ -189,7 +165,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="低"/>
+                            android:text="@string/priority_low"/>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn_priority_medium"
@@ -197,7 +173,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="中"/>
+                            android:text="@string/priority_medium"/>
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/btn_priority_high"
@@ -205,7 +181,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="高"/>
+                            android:text="@string/priority_high"/>
                     </com.google.android.material.button.MaterialButtonToggleGroup>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -226,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="12dp"
                     android:layout_weight="1"
-                    android:text="取消"
+                    android:text="@string/common_cancel"
                     android:textColor="@color/primary_color"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -235,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="保存"
+                    android:text="@string/common_save"
                     android:textColor="@color/text_white"
                     app:backgroundTint="@color/selector_btn_save_background"/>
             </LinearLayout>

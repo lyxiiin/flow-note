@@ -1,11 +1,11 @@
 package com.lyxiiin.flownote.ui.home
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.lyxiiin.flownote.R
 import com.lyxiiin.flownote.data.local.entity.Note
 import com.lyxiiin.flownote.data.local.entity.NoteCategory
 import com.lyxiiin.flownote.data.local.entity.NoteCategoryWithCount
@@ -68,11 +68,10 @@ class NoteListAdapter(
 
     inner class CategoryViewHolder(private val binding: ItemClassBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("SetTextI18n")
         fun bind(item: NoteCategoryWithCount) {
             val category = item.category
             binding.tvCategoryName.text = category.name
-            binding.tvArticleCount.text = "${item.noteCount}篇小计"
+            binding.tvArticleCount.text = binding.root.context.getString(R.string.category_note_subtotal_format, item.noteCount)
             binding.root.setOnClickListener { onCategoryClick(category) }
             binding.btnCategoryMore.setOnClickListener {
                 onCategoryMenuClick(category)

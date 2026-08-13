@@ -44,6 +44,8 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentTodoEditBinding.bind(view)
+        // 通用顶栏：设置页面标题（布局中标题为通用占位）
+        binding.topBar.tvTopBarTitle.setText(R.string.todo_edit_title)
 
         viewModel.title.observe(viewLifecycleOwner){ title ->
             // 仅在文本真正变化时回填，避免输入过程中 setText 将光标重置到文本开头
@@ -67,7 +69,7 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
         }
 
         viewModel.dueDate.observe(viewLifecycleOwner) { due->
-            binding.tvDueValue.text = due?.toDateTimeString() ?: "设置截止时间"
+            binding.tvDueValue.text = due?.toDateTimeString() ?: getString(R.string.due_placeholder)
             binding.tvDueValue.setTextColor(ContextCompat.getColor(requireContext(),
                 if (due  == null) R.color.text_hint else R.color.text_primary))
             binding.btnClearDue.visibility = if (due == null) View.GONE else View.VISIBLE
@@ -91,7 +93,7 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
         })
 
 
-        binding.btnBack.setOnClickListener { findNavController().popBackStack() }
+        binding.topBar.btnBack.setOnClickListener { findNavController().popBackStack() }
         binding.btnCancel.setOnClickListener { findNavController().popBackStack() }
         binding.btnSave.setOnClickListener { viewModel.save() }
         // 截止时间行：点击整行弹出日期+时间选择器；点击清除按钮置空截止时间
@@ -102,7 +104,7 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
 
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.saveResult.collect { success ->
-                    if (!success) Toast.makeText(requireContext(), "保存失败，请重试", Toast.LENGTH_SHORT).show()
+                    if (!success) Toast.makeText(requireContext(), getString(R.string.toast_save_failed), Toast.LENGTH_SHORT).show()
                     findNavController().popBackStack()
                 }
             }
@@ -112,7 +114,7 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
     private fun showDueDatePicker() {
         val current = viewModel.dueDate.value
         val datePicker = MaterialDatePicker.Builder.datePicker().apply {
-            setTitleText("选择日期")
+            setTitleText(getString(R.string.picker_date_title))
             // 先把当前时间戳按系统时区拆出日历日期，再按 UTC 0 点组装，供 DatePicker 精确定位选中日期
             current?.let { setSelection(Instant.ofEpochMilli(it).atZone(ZoneId.systemDefault()).toLocalDate().toUtcStartOfDayMillis()) }
         }.build()
@@ -136,5 +138,10 @@ class TodoEditFragment: Fragment(R.layout.fragment_todo_edit) {
     private fun updateSaveButtonState(title: String? = null){
         val t = title ?: binding.etTitle.text?.toString().orEmpty()
         binding.btnSave.isEnabled = t.trim().isNotEmpty()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

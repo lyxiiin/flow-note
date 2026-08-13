@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用名 -->
+    <string name="app_name">FlowNote</string>
+
+    <!-- 无障碍描述 -->
+    <string name="splash_icon_desc">App icon</string>
+    <string name="more_options">More options</string>
+    <string name="todo_done_desc">Mark as done</string>
+    <string name="selected_desc">Marked as selected</string>
+
+    <!-- 通用操作 -->
+    <string name="common_back">Back</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_confirm">OK</string>
+    <string name="common_save">Save</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_rename">Rename</string>
+    <string name="common_move">Move</string>
+
+    <!-- 首页 -->
+    <string name="tab_todo">To-do</string>
+    <string name="tab_note">Notes</string>
+    <string name="search_hint">Search...</string>
+    <string name="home_add_folder_desc">Add folder</string>
+    <string name="home_profile_desc">Profile</string>
+    <string name="home_clear_search_desc">Clear search</string>
+    <string name="home_add_desc">New</string>
+    <string name="dialog_new_category_title">New category</string>
+    <string name="dialog_new_category_hint">Enter category name</string>
+    <string name="toast_category_added">Category added</string>
+    <string name="toast_category_duplicate">Category name already exists</string>
+    <string name="toast_category_empty">Category name cannot be empty</string>
+
+    <!-- 分组 -->
+    <string name="group_today">Today</string>
+    <string name="group_tomorrow">Tomorrow</string>
+    <string name="group_later">Later</string>
+    <string name="group_done">Done</string>
+    <string name="category_detail_empty">No notes in this category</string>
+    <string name="category_note_count_format">%1$d notes in total</string>
+    <string name="category_note_subtotal_format">%1$d notes</string>
+    <string name="rename_category_title">Rename category</string>
+    <string name="rename_category_hint">Enter a new category name</string>
+    <string name="dismiss_category">Dismiss category</string>
+    <string name="category_unknown">Unknown</string>
+
+    <!-- 笔记 -->
+    <string name="note_placeholder">Notes page</string>
+    <string name="note_detail_bg_desc">Change background</string>
+    <string name="note_detail_undo_desc">Undo</string>
+    <string name="note_detail_redo_desc">Redo</string>
+    <string name="note_detail_done_desc">Done</string>
+    <string name="note_detail_hint_content">Start writing</string>
+    <string name="note_detail_meta_format">%1$s  |  %2$d chars</string>
+    <string name="rename_note_title">Rename note</string>
+    <string name="rename_note_hint">Enter a new note title</string>
+    <string name="delete_note">Delete note</string>
+    <string name="new_note_desc">New note</string>
+
+    <!-- 移动分组 -->
+    <string name="move_select_group">Select category</string>
+    <string name="move_selected_desc">Selected</string>
+    <string name="toast_move_failed">Move failed, please retry</string>
+
+    <!-- 待办 -->
+    <string name="todo_empty">No to-dos</string>
+    <string name="todo_edit_title">Edit task</string>
+    <string name="todo_edit_hint_title">Title</string>
+    <string name="todo_edit_hint_detail">Details…</string>
+    <string name="due_label">Due date</string>
+    <string name="due_placeholder">Set due date</string>
+    <string name="clear_due_desc">Clear due date</string>
+    <string name="priority_label">Priority</string>
+    <string name="priority_low">Low</string>
+    <string name="priority_medium">Medium</string>
+    <string name="priority_high">High</string>
+    <string name="toast_save_failed">Save failed, please retry</string>
+    <string name="picker_date_title">Select date</string>
+    <string name="todo_count_format">%1$d items</string>
+
+    <!-- 个人中心 -->
+    <string name="profile_title">Profile</string>
+    <string name="setting_language">Language</string>
+    <string name="setting_appearance">Appearance</string>
+    <string name="setting_notification">Notifications</string>
+    <string name="setting_about">About</string>
+
+    <!-- 语言 -->
+    <string name="language_finish">Done</string>
+    <string name="language_follow_system">Follow system</string>
+
+    <!-- 外观 -->
+    <string name="appearance_finish">Done</string>
+    <string name="appearance_follow_system">Follow system</string>
+    <string name="appearance_light_mode">Light mode</string>
+    <string name="appearance_dark_mode">Dark mode</string>
+
+    <!-- 相对时间 -->
+    <string name="relative_just_now">Just now</string>
+    <string name="relative_minutes_ago">%1$d min ago</string>
+    <string name="relative_hours_ago">%1$d hr ago</string>
+    <string name="relative_days_ago">%1$d days ago</string>
+
+    <!-- 提示 -->
+    <string name="toast_rename_success">Renamed successfully</string>
+</resources>

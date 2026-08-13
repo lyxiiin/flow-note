@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 应用名 -->
+    <string name="app_name">FlowNote</string>
+
+    <!-- 无障碍描述 -->
+    <string name="splash_icon_desc">應用程式圖示</string>
+    <string name="more_options">更多選項</string>
+    <string name="todo_done_desc">標記完成</string>
+    <string name="selected_desc">標記選取</string>
+
+    <!-- 通用操作 -->
+    <string name="common_back">返回</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_confirm">確定</string>
+    <string name="common_save">儲存</string>
+    <string name="common_delete">刪除</string>
+    <string name="common_rename">重新命名</string>
+    <string name="common_move">移動</string>
+
+    <!-- 首页 -->
+    <string name="tab_todo">待辦</string>
+    <string name="tab_note">隨心記</string>
+    <string name="search_hint">搜尋...</string>
+    <string name="home_add_folder_desc">新增資料夾</string>
+    <string name="home_profile_desc">個人中心</string>
+    <string name="home_clear_search_desc">清除搜尋</string>
+    <string name="home_add_desc">新增</string>
+    <string name="dialog_new_category_title">新增分組</string>
+    <string name="dialog_new_category_hint">請輸入分組名稱</string>
+    <string name="toast_category_added">已新增分組</string>
+    <string name="toast_category_duplicate">分組名稱已存在</string>
+    <string name="toast_category_empty">分組名稱不能為空</string>
+
+    <!-- 分组 -->
+    <string name="group_today">今天</string>
+    <string name="group_tomorrow">明天</string>
+    <string name="group_later">更遠</string>
+    <string name="group_done">已完成</string>
+    <string name="category_detail_empty">此分組暫無筆記</string>
+    <string name="category_note_count_format">共 %1$d 篇筆記</string>
+    <string name="category_note_subtotal_format">%1$d篇小計</string>
+    <string name="rename_category_title">重新命名分組</string>
+    <string name="rename_category_hint">請輸入新的分組名稱</string>
+    <string name="dismiss_category">解散分組</string>
+    <string name="category_unknown">未知</string>
+
+    <!-- 笔记 -->
+    <string name="note_placeholder">隨心記頁面</string>
+    <string name="note_detail_bg_desc">變更背景</string>
+    <string name="note_detail_undo_desc">復原</string>
+    <string name="note_detail_redo_desc">重做</string>
+    <string name="note_detail_done_desc">完成</string>
+    <string name="note_detail_hint_content">開始書寫</string>
+    <string name="note_detail_meta_format">%1$s  |  %2$d字</string>
+    <string name="rename_note_title">重新命名筆記</string>
+    <string name="rename_note_hint">請輸入新的筆記標題</string>
+    <string name="delete_note">刪除筆記</string>
+    <string name="new_note_desc">新增筆記</string>
+
+    <!-- 移动分组 -->
+    <string name="move_select_group">選擇分組</string>
+    <string name="move_selected_desc">已選取</string>
+    <string name="toast_move_failed">移動失敗，請重試</string>
+
+    <!-- 待办 -->
+    <string name="todo_empty">暫無待辦</string>
+    <string name="todo_edit_title">編輯任務</string>
+    <string name="todo_edit_hint_title">標題</string>
+    <string name="todo_edit_hint_detail">詳情…</string>
+    <string name="due_label">截止時間</string>
+    <string name="due_placeholder">設定截止時間</string>
+    <string name="clear_due_desc">清除截止時間</string>
+    <string name="priority_label">優先級</string>
+    <string name="priority_low">低</string>
+    <string name="priority_medium">中</string>
+    <string name="priority_high">高</string>
+    <string name="toast_save_failed">儲存失敗，請重試</string>
+    <string name="picker_date_title">選擇日期</string>
+    <string name="todo_count_format">%1$d 項</string>
+
+    <!-- 个人中心 -->
+    <string name="profile_title">個人資料</string>
+    <string name="setting_language">語言</string>
+    <string name="setting_appearance">外觀</string>
+    <string name="setting_notification">通知</string>
+    <string name="setting_about">關於</string>
+
+    <!-- 语言 -->
+    <string name="language_finish">完成</string>
+    <string name="language_follow_system">跟隨系統</string>
+
+    <!-- 外观 -->
+    <string name="appearance_finish">完成</string>
+    <string name="appearance_follow_system">跟隨系統</string>
+    <string name="appearance_light_mode">淺色模式</string>
+    <string name="appearance_dark_mode">深色模式</string>
+
+    <!-- 相对时间 -->
+    <string name="relative_just_now">剛剛</string>
+    <string name="relative_minutes_ago">%1$d分鐘前</string>
+    <string name="relative_hours_ago">%1$d小時前</string>
+    <string name="relative_days_ago">%1$d天前</string>
+
+    <!-- 提示 -->
+    <string name="toast_rename_success">重新命名成功</string>
+</resources>

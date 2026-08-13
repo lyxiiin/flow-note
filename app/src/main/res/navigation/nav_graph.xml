@@ -29,6 +29,11 @@
             app:destination="@+id/todoEditFragment"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_home_to_profile"
+            app:destination="@+id/profileFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false"/>
     </fragment>
 
     <!--  分组详情页  -->
@@ -104,6 +109,37 @@
             android:name="todoId"
             app:argType="long"
             android:defaultValue="-1L"/>
+    </fragment>
+
+    <!--  设置页  -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.lyxiiin.flownote.ui.profile.ProfileFragment"
+        android:label="Profile">
+        <action
+            android:id="@+id/action_profile_to_language"
+            app:destination="@+id/languageFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="false"/>
+        <action
+            android:id="@+id/action_profile_to_appearance"
+            app:destination="@+id/appearanceFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="false"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.lyxiiin.flownote.ui.profile.LanguageFragment"
+        android:label="Language">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appearanceFragment"
+        android:name="com.lyxiiin.flownote.ui.profile.AppearanceFragment"
+        android:label="Appearance">
+
     </fragment>
 
 </navigation>

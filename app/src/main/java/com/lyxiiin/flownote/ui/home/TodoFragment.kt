@@ -39,7 +39,7 @@ class TodoFragment: Fragment(R.layout.fragment_todo) {
             onTodoMenuClick = { todo ->
                 ActionMenuDialog.Builder(requireContext())
                     .setTitle(todo.title)
-                    .addDangerItem(R.drawable.ic_delete, "删除") {
+                    .addDangerItem(R.drawable.ic_delete, getString(R.string.common_delete)) {
                         viewModel.deleteTodo(todo.id)
                     }
                     .show()

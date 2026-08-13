@@ -1,6 +1,5 @@
 package com.lyxiiin.flownote.ui.note
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -37,7 +36,6 @@ class NoteDetailFragment: Fragment(R.layout.fragment_note_detail) {
         NoteDetailViewModelFactory(noteId,categoryId,app.noteRepository)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentNoteDetailBinding.bind(view)
@@ -48,7 +46,7 @@ class NoteDetailFragment: Fragment(R.layout.fragment_note_detail) {
             note?.let { 
                 binding.etTitle.setText(it.title)
                 binding.etContent.setText(it.content)
-                binding.tvChangedTimeWordCount.text = "${it.updatedAt.toDateTimeString()}  |  ${it.content.length}字"
+                binding.tvChangedTimeWordCount.text = getString(R.string.note_detail_meta_format, it.updatedAt.toDateTimeString(), it.content.length)
             }
         }
         binding.etTitle.addTextChangedListener(object : TextWatcher {
@@ -87,11 +85,11 @@ class NoteDetailFragment: Fragment(R.layout.fragment_note_detail) {
         }
         binding.btnMore.setOnClickListener {
             ActionMenuDialog.Builder(requireContext())
-                .addItem(R.drawable.ic_move, "移动"){
+                .addItem(R.drawable.ic_move, getString(R.string.common_move)){
                     val bundle = bundleOf("noteId" to noteId)
                     findNavController().navigate(R.id.action_note_detail_to_note_move, bundle)
                 }
-                .addDangerItem(R.drawable.ic_delete, "删除"){
+                .addDangerItem(R.drawable.ic_delete, getString(R.string.common_delete)){
                     viewModel.deleteNote()
                     findNavController().popBackStack()
                 }

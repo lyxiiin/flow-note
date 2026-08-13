@@ -1,9 +1,9 @@
 package com.lyxiiin.flownote.ui.home
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -27,7 +27,7 @@ class TodoListAdapter(
             override fun areItemsTheSame(p0: TodoListItem, p1: TodoListItem): Boolean {
                 return when {
                     p0 is TodoListItem.Header && p1 is TodoListItem.Header ->
-                        p0.title == p1.title
+                        p0.titleRes == p1.titleRes
                     p0 is TodoListItem.TodoRow && p1 is TodoListItem.TodoRow ->
                         p0.todo.id == p1.todo.id
                     else -> false
@@ -56,7 +56,7 @@ class TodoListAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(val item = getItem(position)){
-            is TodoListItem.Header -> (holder as HeaderViewHolder).bind(item.title, item.count)
+            is TodoListItem.Header -> (holder as HeaderViewHolder).bind(item.titleRes, item.count)
             is TodoListItem.TodoRow -> (holder as TodoViewHolder).bind(item.todo)
         }
     }
@@ -89,12 +89,11 @@ class TodoListAdapter(
             }
         }
     }
-    @SuppressLint("SetTextI18n")
     inner class HeaderViewHolder(private val binding: ItemTodoGroupHeaderBinding):
     RecyclerView.ViewHolder(binding.root){
-        fun bind(title: String, count: Int){
-            binding.tvTitle.text = title
-            binding.tvCount.text = "$count 项"
+        fun bind(@StringRes titleRes: Int, count: Int){
+            binding.tvTitle.text = binding.root.context.getString(titleRes)
+            binding.tvCount.text = binding.root.context.getString(R.string.todo_count_format, count)
         }
     }
 

@@ -26,7 +26,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:contentDescription="返回"
+                android:contentDescription="@string/common_back"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_back" />
 
@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="该分组暂无笔记"
+        android:text="@string/category_detail_empty"
         android:textColor="@color/text_hint"
         android:textSize="16sp"
         android:visibility="gone"
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:contentDescription="新建笔记"
+        android:contentDescription="@string/new_note_desc"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/primary_color"
         app:tint="@color/text_on_primary" />

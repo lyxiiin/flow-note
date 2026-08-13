@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.lyxiiin.flownote.R
 import com.lyxiiin.flownote.data.local.entity.Note
 import com.lyxiiin.flownote.data.local.entity.NoteCategory
 import com.lyxiiin.flownote.data.local.entity.NoteCategoryWithCount
@@ -39,10 +40,10 @@ class HomeViewModel(
     // Todo页
     val todoList: LiveData<List<TodoListItem>> = combine(todoRepository.getTodayTodos(),todoRepository.getTomorrowTodos(), todoRepository.getLaterTodos(), todoRepository.getTodosByState(true)){ today, tomorrow, later,done ->
         listOf(
-            TodoGroup("今天",today),
-            TodoGroup("明天",tomorrow),
-            TodoGroup("更远",later),
-            TodoGroup("已完成",done)
+            TodoGroup(R.string.group_today,today),
+            TodoGroup(R.string.group_tomorrow,tomorrow),
+            TodoGroup(R.string.group_later,later),
+            TodoGroup(R.string.group_done,done)
         ).filter { it.todos.isNotEmpty() }
     }
         .map { flattenGroups(it) }
@@ -51,7 +52,7 @@ class HomeViewModel(
 
     private fun flattenGroups(groups: List<TodoGroup>): List<TodoListItem> =
         groups.flatMap { group ->
-            listOf(TodoListItem.Header(group.title, group.todos.size)) +
+            listOf(TodoListItem.Header(group.titleRes, group.todos.size)) +
                     group.todos.map { TodoListItem.TodoRow(it) }
         }
     fun insertCategory(name: String) {

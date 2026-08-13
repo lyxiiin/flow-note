@@ -28,17 +28,17 @@
             app:tabSelectedTextColor="@color/primary_color"
             app:tabSelectedTextAppearance="@style/TabTextAppearanceSelected"
             app:tabTextAppearance="@style/TabTextAppearance"
-            app:tabTextColor="#999999">
+            app:tabTextColor="@color/tab_text_unselected">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="待办" />
+                android:text="@string/tab_todo" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="随心记" />
+                android:text="@string/tab_note" />
 
         </com.google.android.material.tabs.TabLayout>
 
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:background="@android:color/transparent"
-                android:contentDescription="添加文件"
+                android:contentDescription="@string/home_add_folder_desc"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_folder_add" />
 
@@ -69,7 +69,7 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@android:color/transparent"
-                android:contentDescription="个人中心"
+                android:contentDescription="@string/home_profile_desc"
                 android:scaleType="centerInside"
                 android:src="@drawable/ic_person" />
 
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:layout_marginStart="8dp"
             android:background="@null"
-            android:hint="搜索..."
+            android:hint="@string/search_hint"
             android:inputType="text"
             android:maxLines="1"
             android:textSize="12sp"/>
@@ -107,7 +107,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:background="@null"
-            android:contentDescription="清除搜索"
+            android:contentDescription="@string/home_clear_search_desc"
             android:visibility="gone"
             android:src="@drawable/ic_close"/>
 
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:contentDescription="新建"
+        android:contentDescription="@string/home_add_desc"
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/primary_color"
         app:tint="@color/text_on_primary" />

@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="随心记页面"
+        android:text="@string/note_placeholder"
         android:textSize="20sp" />
 
 </FrameLayout>

@@ -1,5 +1,7 @@
 package com.lyxiiin.flownote.util
 
+import android.content.Context
+import com.lyxiiin.flownote.R
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
@@ -54,16 +56,16 @@ fun Long.toSmartDateString(): String {
 }
 
 /** 相对时间描述，如 "刚刚"、"5分钟前"、"3小时前"、"2天前" */
-fun Long.toRelativeString(): String {
+fun Long.toRelativeString(context: Context): String {
     val diff = System.currentTimeMillis() - this
     val minutes = diff / 60_000
     val hours = minutes / 60
     val days = hours / 24
     return when {
-        minutes < 1 -> "刚刚"
-        minutes < 60 -> "${minutes}分钟前"
-        hours < 24 -> "${hours}小时前"
-        days < 30 -> "${days}天前"
+        minutes < 1 -> context.getString(R.string.relative_just_now)
+        minutes < 60 -> context.getString(R.string.relative_minutes_ago, minutes)
+        hours < 24 -> context.getString(R.string.relative_hours_ago, hours)
+        days < 30 -> context.getString(R.string.relative_days_ago, days)
         else -> toDateString()
     }
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 通用顶栏：返回按钮 + 页面标题 + 可选右侧动作区，宿主页面通过 include 复用 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp">
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/common_back"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_back"/>
+
+    <!-- 页面标题：占满剩余空间，宿主 include 后通过 binding.topBar.tvTopBarTitle 设置文本 -->
+    <TextView
+        android:id="@+id/tv_top_bar_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="页面标题"/>
+
+    <!-- 右侧动作区：默认隐藏，宿主动态填充按钮组后置为 VISIBLE -->
+    <TextView
+        android:id="@+id/btn_finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:text="@string/language_finish"
+        android:textColor="@color/primary_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/ll_top_bar_actions"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:visibility="gone"-->
+<!--        tools:visibility="visible" />-->
+</LinearLayout>
