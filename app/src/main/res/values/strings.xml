@@ -86,6 +86,18 @@
     <string name="setting_notification">通知</string>
     <string name="setting_about">关于</string>
 
+    <!-- 关于 -->
+    <string name="about_version_format">版本 %1$s</string>
+    <string name="about_app_description">简洁的笔记与待办管理应用</string>
+    <string name="about_privacy_policy">隐私政策</string>
+    <string name="about_terms_of_service">用户协议</string>
+    <string name="about_open_source_licenses">开源许可</string>
+    <string name="about_rate_us">给我们评分</string>
+    <string name="about_share">分享 FlowNote</string>
+    <string name="about_contact_developer">联系开发者</string>
+    <string name="about_share_text">推荐一个很好用的笔记应用：FlowNote</string>
+    <string name="about_copyright">© 2026 lyxiiin。保留所有权利。</string>
+
     <!-- 语言 -->
     <string name="language_finish">完成</string>
     <string name="language_follow_system">跟随系统</string>

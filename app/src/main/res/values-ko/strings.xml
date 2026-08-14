@@ -86,6 +86,18 @@
     <string name="setting_notification">알림</string>
     <string name="setting_about">정보</string>
 
+    <!-- 关于 -->
+    <string name="about_version_format">버전 %1$s</string>
+    <string name="about_app_description">간단한 메모 및 할 일 앱</string>
+    <string name="about_privacy_policy">개인정보 처리방침</string>
+    <string name="about_terms_of_service">이용약관</string>
+    <string name="about_open_source_licenses">오픈소스 라이선스</string>
+    <string name="about_rate_us">별점 주기</string>
+    <string name="about_share">FlowNote 공유</string>
+    <string name="about_contact_developer">개발자에게 문의</string>
+    <string name="about_share_text">편리한 메모 앱 FlowNote를 추천합니다</string>
+    <string name="about_copyright">© 2026 lyxiiin. All rights reserved.</string>
+
     <!-- 语言 -->
     <string name="language_finish">완료</string>
     <string name="language_follow_system">시스템 설정 따르기</string>

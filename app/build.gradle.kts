@@ -17,6 +17,13 @@ android {
         versionCode = 1                           // 内部版本号（每次发布递增）
         versionName = "1.0"                       // 用户可见的版本名称
 
+        // 关于页外链占位配置：上架前替换为真实地址（BuildConfig 字段，使用处见 AboutFragment）
+        buildConfigField("String", "PRIVACY_POLICY_URL", "\"https://lyxiiin.github.io/policies/flow-note/PRIVACY_POLICY.html\"")
+        buildConfigField("String", "TERMS_OF_SERVICE_URL", "\"https://lyxiiin.github.io/policies/flow-note/TERMS_OF_SERVICE.html\"")
+        buildConfigField("String", "SOURCE_REPO_URL", "\"https://github.com/lyxiiin/FlowNote\"")
+        buildConfigField("String", "STORE_PAGE_URL", "\"https://play.google.com/store/apps/details?id=com.lyxiiin.flownote\"")
+        buildConfigField("String", "SUPPORT_EMAIL", "\"1367730617@qq.com\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,6 +46,7 @@ android {
     buildFeatures {
         compose = true                            // 启用 Jetpack Compose
         viewBinding = true                        // 启用 ViewBinding（XML 布局绑定）
+        buildConfig = true                        // 启用 BuildConfig 生成（关于页版本号/外链占位需要）
     }
 }
 

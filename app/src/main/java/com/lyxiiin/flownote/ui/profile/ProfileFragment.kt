@@ -43,7 +43,7 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
             findNavController().navigate(R.id.action_profile_to_appearance)
         }
         binding.settingAbout.llSettingItem.setOnClickListener {
-
+            findNavController().navigate(R.id.action_profile_to_about)
         }
     }
 
