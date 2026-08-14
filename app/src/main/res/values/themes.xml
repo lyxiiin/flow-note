@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.FlowNote" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.FlowNote" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- 定义主题属性 -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorSecondary">@color/secondary_color</item>
